@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+mainClassName = 'com.istm.cda.Main'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.neo4j.driver:neo4j-java-driver:1.2.1'
+	testImplementation 'junit:junit:4.12'
+}
+
+task loadDb (type: JavaExec) {
+	classpath = sourceSets.main.runtimeClasspath
+	main = 'com.istm.cda.data.DataLoader'
+}
+
+run{
+    standardInput = System.in
+}
+
+run.dependsOn(loadDb)

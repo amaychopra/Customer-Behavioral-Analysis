@@ -1,0 +1,72 @@
+Customer Data Analysis (CDA) v0.4
+
+**************************************************************************
+SUMMARY
+**************************************************************************
+Certain e-Commerce companies are facing a gradual decline in their sales. This has caused considerable drop in the companies' total revenue and a decrease in market standing. 
+As a direct impact, companies are losing their customer base to the competitors, thereby incurring a drop in market share. After analyzing the historical sales trends and contrasting the projected sales data with the actual sales data, we have been able to identify the deflection point. The root cause has been identified to be the complete migration of the companies' digital sales platform to support operations only via mobile app after discontinuing the support for their desktop website. We are proposing a twin-step solution to tackle this problem. 
+The e-commerce companies should reintroduce the desktop website sales platform while advertising the re-launch of the same. These steps will promote re-entry of the customers who were lost due to the decrease in accessibility, thereby contributing to an overall increase in sales.
+
+**************************************************************************
+CHANGES
+************************************************************************** 
+Version 0.4
+
+- release candidate 1 release
+
+-Arrived on a final solution to our problem statement to showcase a graph based analysis
+-Completed the main use case implementation to determine the lost business and customers with the discontinuation of website and going 'app only'
+-Analyzed customer's shopping trends (numbers of orders placed in each year for last 5 years) contrasting it with attributes 'shop type' and 'demographic'
+-Created a Neo4j graph of shopping characteristics of each customer for last 5 years
+-Generated a tabular and line graph representation depicting the changing shopping trend and preference of customers based on above statistical analysis
+-Story of statistics/point to prove: Number of orders placed per customer was on an incline when the number suddenly dipped in year 2015 when the website was discontinued and could never gain the same ascent again
+-Conclusion: The e-commerce company should reintroduce the website rather than continuing as 'app only' interface to its customers
+
+**************************************************************************
+STEPS TO VIEW GRAPHICAL OUTPUT ON ECLIPSE
+**************************************************************************
+1. Download and install 'Mirur' Plugin from Eclipse Market Place before running the project.
+2. Put a breakpoint in 'GenerateCommandThree.java' at line 54
+3. Run 'GenerateCommandThree.java' separately in debug mode without using gradle. This should open a 'Mirur Painter' window by itself, otherwise perform step 3a.
+    3a. In Eclipse, go to Windows -->Show View -->Others, and search for Mirur Painter.
+4. Go to the "Variables" tab.
+5. Click on "superData" variable.
+6. Click on [0], [1], [2] or [3].
+7. x-axis = 'years' (starting from 2013)  y-axis = 'number of orders'.
+8. Witness the graphs in 'Mirur Painter' window!
+
+Version 0.3
+
+- beta release
+
+- Analyzed customer data to identify significant factors that affect customer ordering pattern.
+- Identified the role of customer age in determining the frequency of purchase.
+- Created a tabular representation to show the relationship between age of the customers and number of days since their last order.
+- We have arrived at a conclusion that the trend of frequency of orders decrease with the increasing age of the customers with an outlier data around the age group of 22-35 years (minimum number of days since last order)
+
+
+Version 0.2
+
+- Alpha release
+- First pass of our primary use case is completed by establishing relationship between demographic regions (urban, suburban, rural) and membership type (basic, premium) of the customer database.
+- We have developed a menu based system, which allows owner of the e-commerce website to analyze customer count based on the relation of demographic and membership attributes, which would later help in determining customer behavior in detail in future releases. For ex: More premium memberships originate from urban areas compared to rural areas.
+- Customer behavior is analyzed in this pass and implemented successfully using the above two parameters at this time.
+- We reduced the data size of our Customer Dataset to 1000 rows for faster execution of data load.
+- We plan on aggregating the nodes and including more number of attributes in the next release.
+
+Version 0.1
+- Proof of architecture
+
+**************************************************************************
+
+COMMENTS
+**************************************************************************
+We have trimmed our dataset to showcase and utilize test data of 1000 rows (originally 1,00,000 rows) after making the following assessments:
+1. While loading our complete dataset (approx. 5MB), Customer Data and Order Data upload took very less time in our test run, while loading Relation data took 30-35 minutes on a system with 4GB of RAM.
+2. We suspect deletion of any previously created nodes and relationships (if large dataset) would also consume a considerable amount of time before we start loading the new data.
+**************************************************************************
+SETUP
+**************************************************************************
+1. Create a folder called "import" under the default.graphdb folder in your local Neo4j installation directory.
+2. Copy the contents of the project "data" folder to the new folder created in step 1.
+
